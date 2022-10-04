@@ -3,6 +3,7 @@ import "dotenv/config";
 import express, { Application } from "express";
 import cors from "cors";
 import morgan from "morgan";
+import helmet from "helmet";
 
 import connectMongo from "./settings/database";
 import v1 from "./routes";
@@ -14,6 +15,7 @@ const app: Application = express();
 
 // middlewares
 app.use(cors());
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));

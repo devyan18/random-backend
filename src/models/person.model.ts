@@ -1,8 +1,12 @@
-import { Document, model, Schema } from "mongoose";
+import { Document, model, Schema, Types } from "mongoose";
 
 import { Person } from "../entities/person.entity";
+import { IUserModel } from "./user.model";
 
-export interface IPersonModel extends Person, Document {}
+export interface IPersonModel extends Person, Document {
+  user: string | IUserModel,
+  fullName: string
+}
 
 const PersonSchema = new Schema<IPersonModel>({
   firstName: {
@@ -19,11 +23,15 @@ const PersonSchema = new Schema<IPersonModel>({
   dateOfBirth: {
     type: Date,
     required: true
+  },
+  user: {
+    type: Types.ObjectId,
+    ref: "User",
+    required: true
   }
 },
 {
-  timestamps: true,
-  versionKey: false
+  timestamps: true
 });
 
 PersonSchema.pre<IPersonModel>("save", function (next) {

@@ -1,8 +1,9 @@
-const { JWT_SECRET, MONGODB_URI, MONGO_URI_TEST, NODE_ENV, PORT } = process.env;
+const { JWT_SECRET, MONGODB_URI, NODE_ENV, PORT } = process.env;
 
 const DEFAULT_PORT = 4000;
 const DEFAULT_JWT_SECRET = "secret";
 const DEFAULT_MONGO_URI = "mongodb://localhost:27017/random";
+const MONGO_URI_TEST = "mongodb://localhost:27017/random-test";
 
 export default {
   PORT: PORT || DEFAULT_PORT,

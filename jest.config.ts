@@ -10,7 +10,6 @@ export default async (): Promise<Config.InitialOptions> => {
     collectCoverage: false,
     transform: { "^.+\\.tsx?$": "ts-jest" },
     globalTeardown: "<rootDir>/src/tests/jest-globals-teardown.ts",
-    forceExit: true,
-    silent: true
+    forceExit: true
   };
 };

@@ -14,8 +14,8 @@ readdirSync(PATH_ROUTER).filter((fileName) => {
   const nameTruncked = truncFileName(fileName);
 
   if (nameTruncked !== "index") {
-    import(`./${nameTruncked}`).then((route) => {
-      router.use(`/${nameTruncked}`, route.router);
+    import(`./${nameTruncked}`).then((response) => {
+      router.use(`/${nameTruncked}`, response.router);
       console.log(`Route: /${nameTruncked} loaded`);
     });
   }

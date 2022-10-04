@@ -8,7 +8,7 @@ const opts: StrategyOptions = {
 
 export default new Strategy(opts, async (payload, done) => {
   try {
-    const user = await userModel.findById(payload.userId);
+    const user = await userModel.findById(payload.userId).populate("person");
 
     if (user) {
       return done(null, user as IUserModel);

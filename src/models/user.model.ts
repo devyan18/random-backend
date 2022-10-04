@@ -1,12 +1,18 @@
-import { Document, model, Schema } from "mongoose";
+import { Document, model, Schema, Types } from "mongoose";
 import bcryptjs from "bcryptjs";
 
 import { User } from "../entities/user.entity";
+import { IPersonModel } from "./person.model";
+import { IRoleModel } from "./role.model";
 
 const SALT_WORK_FACTOR = 10;
 
 export interface IUserModel extends User, Document {
   comparePassword: (password: string) => Promise<boolean>
+  person: string | Types.ObjectId | IPersonModel
+  role: string | Types.ObjectId | IRoleModel
+  password: string
+  isActive: boolean
 }
 
 const UserSchema = new Schema<IUserModel>({
@@ -37,11 +43,15 @@ const UserSchema = new Schema<IUserModel>({
     type: Schema.Types.ObjectId,
     ref: "Person",
     default: null
+  },
+  role: {
+    type: Schema.Types.ObjectId,
+    ref: "Role",
+    default: null
   }
 },
 {
-  timestamps: true,
-  versionKey: false
+  timestamps: true
 });
 
 UserSchema.pre<IUserModel>("save", async function (next) {
