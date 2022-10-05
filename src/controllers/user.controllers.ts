@@ -4,7 +4,6 @@ import { createNewUserIntance, loginUserService } from "../services/user.service
 export async function registerUserCtrl (req: Request, res: Response) {
   try {
     const { username, password, email } = req.body;
-    console.log({ username, password, email });
     const newUser = await createNewUserIntance({ username, password, email });
 
     res.status(201).json(newUser);

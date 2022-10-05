@@ -7,7 +7,7 @@ export interface IRoleModel extends Role, Document {
 }
 
 const RoleSchema = new Schema<IRoleModel>({
-  name: {
+  roleName: {
     type: String,
     required: true
   },
@@ -15,12 +15,10 @@ const RoleSchema = new Schema<IRoleModel>({
     type: String,
     required: true
   },
-  permissions: [
-    {
-      type: Types.ObjectId,
-      ref: "Permission"
-    }
-  ]
+  permissions: [{
+    type: Types.ObjectId,
+    ref: "Permission"
+  }]
 },
 {
   timestamps: true

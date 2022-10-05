@@ -1,15 +1,15 @@
 import "dotenv/config";
 
 import express, { Application } from "express";
-import cors from "cors";
 import morgan from "morgan";
 import helmet from "helmet";
+import cors from "cors";
 
-import connectMongo from "./settings/database";
-import v1 from "./routes";
-import passport from "passport";
-import strategy from "./middlewares/passport";
 import environments from "./settings/env.variables";
+import connectMongo from "./settings/database";
+import strategy from "./middlewares/passport";
+import passport from "passport";
+import v1 from "./routes";
 
 const app: Application = express();
 

@@ -43,14 +43,14 @@ export async function createRole (
 
 export async function editRole (
   roleId: string | Types.ObjectId,
-  name: string,
+  roleName: string,
   description: string,
   permissions: Array<Types.ObjectId | string>
 ): Promise<IRoleModel | null> {
   try {
     const role = await RoleModel.findById(roleId);
     if (!role) return null;
-    role.name = name;
+    role.roleName = roleName;
     role.description = description;
     role.permissions = permissions;
     await role.save();

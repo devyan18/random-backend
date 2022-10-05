@@ -12,8 +12,10 @@ beforeEach(async () => {
 });
 
 describe("Register new User", () => {
+  const registerURL = "/api/v1/users/register";
+
   test("Should return 201 and a new user", async () => {
-    const response = await request.post("/api/v1/users/register").send({
+    const response = await request.post(registerURL).send({
       username: "tester",
       email: "tester@gmail.com",
       password: "123456"
@@ -28,21 +30,21 @@ describe("Register new User", () => {
   });
 
   test("Should return 406 if not passed username", async () => {
-    const response = await request.post("/api/v1/users/register").send({
+    const response = await request.post(registerURL).send({
       email: "tester@gmail.com",
       password: "123456"
     });
     expect(response.status).toBe(406);
   });
   test("Should return 406 if not passed email", async () => {
-    const response = await request.post("/api/v1/users/register").send({
+    const response = await request.post(registerURL).send({
       username: "tester",
       password: "123456"
     });
     expect(response.status).toBe(406);
   });
   test("Should return 406 if not passed password", async () => {
-    const response = await request.post("/api/v1/users/register").send({
+    const response = await request.post(registerURL).send({
       username: "tester",
       email: "tester@gmail.com"
     });
@@ -51,13 +53,15 @@ describe("Register new User", () => {
 });
 
 describe("Login User", () => {
+  const loginURL = "/api/v1/users/login";
+
   test("Should return 200 and a token", async () => {
     const user = await UserModel.create({
       username: "tester",
       email: "tester@gmail.com",
       password: "123456"
     });
-    const response = await request.post("/api/v1/users/login").send({
+    const response = await request.post(loginURL).send({
       email: user.email,
       password: "123456"
     });
@@ -72,7 +76,7 @@ describe("Login User", () => {
       password: "123456"
     });
 
-    const response = await request.post("/api/v1/users/login").send({
+    const response = await request.post(loginURL).send({
       email: "notfound@gmail.com",
       password: "123456"
     });
@@ -86,7 +90,7 @@ describe("Login User", () => {
       password: "123456"
     });
 
-    const response = await request.post("/api/v1/users/login").send({
+    const response = await request.post(loginURL).send({
       email: user.email,
       password: "123455"
     });

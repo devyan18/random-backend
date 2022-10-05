@@ -1,4 +1,4 @@
 export interface Permission{
-  name: string
+  permissionName: string
   description: string
 }

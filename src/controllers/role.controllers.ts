@@ -29,8 +29,8 @@ export async function getRoleByRoleIdCtrl (req:Request, res: Response) {
 
 export async function createRoleCtrl (req:Request, res: Response) {
   try {
-    const { name, description, permissions } = req.body;
-    const newRole = await createRole(name, description, permissions);
+    const { roleName, description, permissions } = req.body;
+    const newRole = await createRole(roleName, description, permissions);
     return res.status(201).json(newRole);
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
@@ -40,8 +40,8 @@ export async function createRoleCtrl (req:Request, res: Response) {
 export async function updateRoleCtrl (req:Request, res: Response) {
   try {
     const roleId = req.params.role;
-    const { name, description, permissions } = req.body;
-    const role = await editRole(roleId, name, description, permissions);
+    const { roleName, description, permissions } = req.body;
+    const role = await editRole(roleId, roleName, description, permissions);
     if (!role) return res.status(404).json({ message: "Role not found" });
     return res.status(200).json(role);
   } catch (error) {

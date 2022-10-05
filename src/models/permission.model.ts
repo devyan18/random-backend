@@ -4,7 +4,7 @@ import { Permission } from "../entities/permission.entity";
 export interface IPermissionModel extends Permission, Document {}
 
 const PermissionSchema = new Schema<IPermissionModel>({
-  name: {
+  permissionName: {
     type: String,
     required: true
   },
