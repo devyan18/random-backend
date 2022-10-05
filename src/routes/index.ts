@@ -10,13 +10,15 @@ const truncFileName = (fileName: string) => {
   return file;
 };
 
+console.log("Loading modules...");
+
 readdirSync(PATH_ROUTER).filter((fileName) => {
   const nameTruncked = truncFileName(fileName);
 
   if (nameTruncked !== "index") {
     import(`./${nameTruncked}`).then((response) => {
       router.use(`/${nameTruncked}`, response.router);
-      console.log(`Route: /${nameTruncked} loaded`);
+      console.log(` Module: [${nameTruncked}] loaded!`);
     });
   }
 });

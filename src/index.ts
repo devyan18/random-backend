@@ -28,8 +28,10 @@ app.use("/api/v1", v1);
 
 // settings
 const server = app.listen(environments.PORT, () => {
-  console.log(`Server is running on port ${environments.PORT}`);
-  connectMongo(environments.MONGO_URI);
+  connectMongo(environments.MONGO_URI)
+    .then(() => {
+      console.log(`\nServer is running in http://localhost:${environments.PORT}`);
+    });
 });
 
 export { server, app };
