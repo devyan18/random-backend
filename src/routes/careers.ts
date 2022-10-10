@@ -5,7 +5,7 @@ import {
   getAllCareersCtrl,
   getCareerByIdCtrl,
   updateCareerByIdCtrl
-} from "../controllers/career.controllers";
+} from "../modules/career/controllers/career.controllers";
 
 const router = Router();
 

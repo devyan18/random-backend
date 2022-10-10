@@ -1,0 +1,15 @@
+{
+  "type": "express",
+  "dir": "./src",
+  "architecture": "clean",
+  "typescript": true,
+  "modules": [
+    "matter",
+    "period",
+    "permission",
+    "person",
+    "role",
+    "user",
+    "career"
+  ]
+}

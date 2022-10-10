@@ -4,7 +4,7 @@ export default async (): Promise<Config.InitialOptions> => {
     preset: "ts-jest",
     verbose: true,
     setupFiles: ["dotenv/config"],
-    testMatch: ["**/**/*.test.ts"],
+    testMatch: ["./src/modules/**/tests/*.test.ts"],
     testEnvironment: "node",
     detectOpenHandles: true,
     collectCoverage: false,
