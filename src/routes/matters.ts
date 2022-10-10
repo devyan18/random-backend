@@ -1,22 +1,22 @@
 import { Router } from "express";
 import {
-  createNewMatterFromPeriodCtrl,
-  deleteMatterByIdCtrl,
-  getAllMattersByPeriodCtrl,
+  createMatterCtrl,
+  getAllMattersCtrl,
+  deleteMatterCtrl,
   getMatterByIdCtrl,
-  updateMatterByIdCtrl
-} from "../controllers/matter.controllers";
+  updateMatterCtrl
+} from "@modules/matter/controllers/matter.controllers";
 
 const router = Router();
 
-router.get("/:period", getAllMattersByPeriodCtrl);
+router.get("/:period", getAllMattersCtrl);
 
 router.get("/:period/:matter", getMatterByIdCtrl);
 
-router.post("/:period", createNewMatterFromPeriodCtrl);
+router.post("/:period", createMatterCtrl);
 
-router.put("/:period/:matter", updateMatterByIdCtrl);
+router.put("/:period/:matter", updateMatterCtrl);
 
-router.delete("/:period/:matter", deleteMatterByIdCtrl);
+router.delete("/:period/:matter", deleteMatterCtrl);
 
 export { router };
