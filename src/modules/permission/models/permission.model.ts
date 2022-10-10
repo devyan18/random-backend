@@ -1,9 +1,9 @@
 import { Document, model, Schema } from "mongoose";
 import Permission from "../interfaces/permission.entity";
 
-export interface PermissionModel extends Permission, Document {}
+export interface IPermissionModel extends Permission, Document {}
 
-const PermissionSchema = new Schema<PermissionModel>({
+const PermissionSchema = new Schema<IPermissionModel>({
   permissionName: {
     type: String,
     required: true
@@ -17,4 +17,4 @@ const PermissionSchema = new Schema<PermissionModel>({
   timestamps: true
 });
 
-export default model<PermissionModel>("Permission", PermissionSchema);
+export default model<IPermissionModel>("Permission", PermissionSchema);

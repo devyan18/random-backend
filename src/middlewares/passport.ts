@@ -1,5 +1,5 @@
 import { Strategy, ExtractJwt, StrategyOptions } from "passport-jwt";
-import userModel, { IUserModel } from "../models/user.model";
+import UserModel, { IUserModel } from "@modules/user/models/user.model";
 
 const opts: StrategyOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -8,7 +8,7 @@ const opts: StrategyOptions = {
 
 export default new Strategy(opts, async (payload, done) => {
   try {
-    const user = await userModel.findById(payload.userId).populate("person");
+    const user = await UserModel.findById(payload.userId).populate("person");
 
     if (user) {
       return done(null, user as IUserModel);

@@ -1,12 +1,12 @@
 import { Document, model, Schema, Types } from "mongoose";
 import Role from "../interfaces/role.entity";
-import { PermissionModel } from "@modules/permission/models/permission.model";
+import { IPermissionModel } from "@modules/permission/models/permission.model";
 
-export interface RoleModel extends Role, Document {
-  permissions: Array<PermissionModel | string | Types.ObjectId>;
+export interface IRoleModel extends Role, Document {
+  permissions: Array<IPermissionModel | string | Types.ObjectId>;
 }
 
-const RoleSchema = new Schema<RoleModel>({
+const RoleSchema = new Schema<IRoleModel>({
   roleName: {
     type: String,
     required: true
@@ -24,4 +24,4 @@ const RoleSchema = new Schema<RoleModel>({
   timestamps: true
 });
 
-export default model<RoleModel>("Role", RoleSchema);
+export default model<IRoleModel>("Role", RoleSchema);

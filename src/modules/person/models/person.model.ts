@@ -1,13 +1,13 @@
 import { Document, model, Schema, Types } from "mongoose";
 import Person from "../interfaces/person.entity";
-import { UserModel } from "@modules/user/models/user.model";
+import { IUserModel } from "@modules/user/models/user.model";
 
-export interface PersonModel extends Person, Document {
-  user: string | UserModel,
+export interface IPersonModel extends Person, Document {
+  user: string | IUserModel,
   fullName: string
 }
 
-const PersonSchema = new Schema<PersonModel>({
+const PersonSchema = new Schema<IPersonModel>({
   firstName: {
     type: String,
     required: true
@@ -33,7 +33,7 @@ const PersonSchema = new Schema<PersonModel>({
   timestamps: true
 });
 
-PersonSchema.pre<PersonModel>("save", function (next) {
+PersonSchema.pre<IPersonModel>("save", function (next) {
   const person = this;
 
   if (!person.isModified(["lastName", "firstName"])) return next();
@@ -45,4 +45,4 @@ PersonSchema.pre<PersonModel>("save", function (next) {
   next();
 });
 
-export default model<PersonModel>("Person", PersonSchema);
+export default model<IPersonModel>("Person", PersonSchema);

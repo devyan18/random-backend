@@ -1,12 +1,12 @@
 import { Document, model, Schema, Types } from "mongoose";
 import Career from "../interfaces/career.entity";
-import { PeriodModel } from "@modules/period/models/period.model";
+import { IPeriodModel } from "@modules/period/models/period.model";
 
-export interface CareerModel extends Career, Document {
-  periods: Array<Types.ObjectId | PeriodModel>
+export interface ICareerModel extends Career, Document {
+  periods: Array<Types.ObjectId | IPeriodModel>
 }
 
-const CareerSchema = new Schema<CareerModel>({
+const CareerSchema = new Schema<ICareerModel>({
   careerName: {
     type: String,
     required: true
@@ -32,4 +32,4 @@ const CareerSchema = new Schema<CareerModel>({
   timestamps: true
 });
 
-export default model<CareerModel>("Career", CareerSchema);
+export default model<ICareerModel>("Career", CareerSchema);
