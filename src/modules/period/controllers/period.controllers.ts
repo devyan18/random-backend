@@ -1,41 +1,41 @@
-import { Request, Response } from 'express'
+import { Request, Response } from "express";
 
-export async function getAllPeriodsCtrl(req: Request, res: Response) {
+export async function getAllPeriodsCtrl (req: Request, res: Response) {
   try {
-    res.send('success')
+    res.send("success");
   } catch (e) {
-    res.status(400).send({error: 'getAll Periods'})
+    res.status(400).send({ error: "getAll Periods" });
   }
 }
 
-export async function getPeriodByIdCtrl(req: Request, res: Response) {
+export async function getPeriodByIdCtrl (req: Request, res: Response) {
   try {
-    res.send('success')
+    res.send("success");
   } catch (e) {
-    res.status(400).send({error: 'get PeriodById'})
+    res.status(400).send({ error: "get PeriodById" });
   }
 }
 
-export async function createPeriodCtrl(req: Request, res: Response) {
+export async function createPeriodCtrl (req: Request, res: Response) {
   try {
-    res.send('success')
+    res.send("success");
   } catch (e) {
-    res.status(400).send({error: 'create Period'})
+    res.status(400).send({ error: "create Period" });
   }
 }
 
-export async function updatePeriodCtrl(req: Request, res: Response) {
+export async function updatePeriodCtrl (req: Request, res: Response) {
   try {
-    res.send('success')
+    res.send("success");
   } catch (e) {
-    res.status(400).send({error: 'update Period'})
+    res.status(400).send({ error: "update Period" });
   }
 }
 
-export async function deletePeriodCtrl(req: Request, res: Response) {
+export async function deletePeriodCtrl (req: Request, res: Response) {
   try {
-    res.send('success')
+    res.send("success");
   } catch (e) {
-    res.status(400).send({error: 'delete Period'})
+    res.status(400).send({ error: "delete Period" });
   }
 }
