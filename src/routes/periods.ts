@@ -1,22 +1,22 @@
 import { Router } from "express";
 import {
-  createNewPeriodFromCareerCtrl,
-  deletePeriodByIdCtrl,
-  getAllPeriodsByCareerIdCtrl,
+  createPeriodCtrl,
+  deletePeriodCtrl,
+  getAllPeriodsCtrl,
   getPeriodByIdCtrl,
-  updatePeriodByIdCtrl
-} from "../controllers/period.controllers";
+  updatePeriodCtrl
+} from "../modules/period/controllers/period.controllers";
 
 const router = Router();
 
-router.get("/:career", getAllPeriodsByCareerIdCtrl);
+router.get("/:career", getAllPeriodsCtrl);
 
 router.get("/:career/:period", getPeriodByIdCtrl);
 
-router.post("/:career", createNewPeriodFromCareerCtrl);
+router.post("/:career", createPeriodCtrl);
 
-router.put("/:career/:period", updatePeriodByIdCtrl);
+router.put("/:career/:period", updatePeriodCtrl);
 
-router.delete("/:career/:period", deletePeriodByIdCtrl);
+router.delete("/:career/:period", deletePeriodCtrl);
 
 export { router };

@@ -1,10 +1,10 @@
 import { Router } from "express";
 import {
-  createNewCareerCtrl,
-  deleteCareerByIdCtrl,
+  createCareerCtrl,
+  deleteCareerCtrl,
   getAllCareersCtrl,
   getCareerByIdCtrl,
-  updateCareerByIdCtrl
+  updateCareerCtrl
 } from "../modules/career/controllers/career.controllers";
 
 const router = Router();
@@ -13,10 +13,10 @@ router.get("/", getAllCareersCtrl);
 
 router.get("/:career", getCareerByIdCtrl);
 
-router.post("/", createNewCareerCtrl);
+router.post("/", createCareerCtrl);
 
-router.put("/:career", updateCareerByIdCtrl);
+router.put("/:career", updateCareerCtrl);
 
-router.delete("/:career", deleteCareerByIdCtrl);
+router.delete("/:career", deleteCareerCtrl);
 
 export { router };

@@ -1,15 +1,25 @@
 import { Router } from "express";
 import {
-  loginUserCtrl,
-  registerUserCtrl
-} from "../controllers/user.controllers";
+  createUserCtrl,
+  deleteUserCtrl,
+  getAllUsersCtrl,
+  getUserByIdCtrl,
+  updateUserCtrl
+} from "@modules/user/controllers/user.controllers";
 import zodValidation from "../middlewares/zodValidation";
-import { loginSchema, registerSchema } from "../schemas/users.schemas";
+import { loginSchema, registerSchema } from "@modules/user/validations/user.schemas";
+import passport from "passport";
 
 const router = Router();
 
-router.post("/login", zodValidation(loginSchema), loginUserCtrl);
+router.get("/", passport.authenticate("jwt", { session: false }), getAllUsersCtrl);
 
-router.post("/register", zodValidation(registerSchema), registerUserCtrl);
+router.get("/", passport.authenticate("jwt", { session: false }), getUserByIdCtrl);
+
+router.post("/", passport.authenticate("jwt", { session: false }), zodValidation(loginSchema), createUserCtrl);
+
+router.put("/", passport.authenticate("jwt", { session: false }), zodValidation(registerSchema), updateUserCtrl);
+
+router.delete("/", passport.authenticate("jwt", { session: false }), deleteUserCtrl);
 
 export { router };
