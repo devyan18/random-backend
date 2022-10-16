@@ -6,7 +6,7 @@ import {
   getAllPermissionsCtrl,
   getPermissionByIdCtrl,
   updatePermissionCtrl
-} from '@modules/permission/controllers/permission.controllers'
+} from '../modules/permission/controllers/permission.controllers'
 
 const router = Router()
 

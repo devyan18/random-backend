@@ -6,7 +6,7 @@ import {
   getPersonByIdCtrl,
   getAllPersonsCtrl,
   deletePersonCtrl
-} from '@modules/person/controllers/person.controllers'
+} from '../modules/person/controllers/person.controllers'
 
 const router = Router()
 

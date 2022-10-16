@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import {
   getTokenByLogin,
   createUserAndReturnToken
-} from '@modules/auth/services/auth.services'
+} from '../services/auth.services'
 
 export async function loginUserCtrl (req: Request, res: Response) {
   try {

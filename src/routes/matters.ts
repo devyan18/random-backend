@@ -5,7 +5,7 @@ import {
   deleteMatterCtrl,
   getMatterByIdCtrl,
   updateMatterCtrl
-} from '@modules/matter/controllers/matter.controllers'
+} from '../modules/matter/controllers/matter.controllers'
 
 const router = Router()
 

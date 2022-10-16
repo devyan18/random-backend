@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import superTest from 'supertest'
 
-import UserModel from '@modules/user/models/user.model'
+import UserModel from '../modules/user/models/user.model'
 
 import { app, server } from '../index'
 

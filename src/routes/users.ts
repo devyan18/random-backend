@@ -5,9 +5,9 @@ import {
   getAllUsersCtrl,
   getUserByIdCtrl,
   updateUserCtrl
-} from '@modules/user/controllers/user.controllers'
+} from '../modules/user/controllers/user.controllers'
 import zodValidation from '../middlewares/zodValidation'
-import { loginSchema, registerSchema } from '@modules/user/validations/user.schemas'
+import { loginSchema, registerSchema } from '../modules/user/validations/user.schemas'
 import passport from 'passport'
 
 const router = Router()

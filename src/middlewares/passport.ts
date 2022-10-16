@@ -1,5 +1,5 @@
 import { Strategy, ExtractJwt, StrategyOptions } from 'passport-jwt'
-import UserModel, { IUserModel } from '@modules/user/models/user.model'
+import UserModel, { IUserModel } from '../modules/user/models/user.model'
 
 const opts: StrategyOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),

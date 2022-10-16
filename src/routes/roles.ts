@@ -5,7 +5,7 @@ import {
   getAllRolesCtrl,
   updateRoleCtrl,
   getRoleByIdCtrl
-} from '@modules/role/controllers/role.controllers'
+} from '../modules/role/controllers/role.controllers'
 import passport from 'passport'
 
 const router = Router()

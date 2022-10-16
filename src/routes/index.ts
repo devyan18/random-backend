@@ -18,7 +18,7 @@ readdirSync(PATH_ROUTER).filter((fileName) => {
   if (nameTruncked !== 'index') {
     import(`./${nameTruncked}`).then((response) => {
       router.use(`/${nameTruncked}`, response.router)
-      console.log(` Module: [${nameTruncked}] loaded!`)
+      console.log(` module --> [${nameTruncked}] loaded!`)
     })
   }
 })
