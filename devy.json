@@ -10,6 +10,7 @@
     "person",
     "role",
     "user",
-    "career"
+    "career",
+    "auth"
   ]
 }

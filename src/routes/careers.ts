@@ -1,4 +1,5 @@
 import { Router } from "express";
+import passport from "passport";
 import {
   createCareerCtrl,
   deleteCareerCtrl,
@@ -9,14 +10,14 @@ import {
 
 const router = Router();
 
-router.get("/", getAllCareersCtrl);
+router.get("/", passport.authenticate("jwt", { session: false }), getAllCareersCtrl);
 
-router.get("/:career", getCareerByIdCtrl);
+router.get("/:career", passport.authenticate("jwt", { session: false }), getCareerByIdCtrl);
 
-router.post("/", createCareerCtrl);
+router.post("/", passport.authenticate("jwt", { session: false }), createCareerCtrl);
 
-router.put("/:career", updateCareerCtrl);
+router.put("/:career", passport.authenticate("jwt", { session: false }), updateCareerCtrl);
 
-router.delete("/:career", deleteCareerCtrl);
+router.delete("/:career", passport.authenticate("jwt", { session: false }), deleteCareerCtrl);
 
 export { router };

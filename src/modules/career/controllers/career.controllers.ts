@@ -1,41 +1,41 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express'
 
-export async function getAllCareersCtrl (req: Request, res: Response) {
+export async function getAllCareersCtrl(req: Request, res: Response) {
   try {
-    res.send("success");
+    res.send('success')
   } catch (e) {
-    res.status(400).send({ error: "getAll Careers" });
+    res.status(400).send({error: 'getAll Careers'})
   }
 }
 
-export async function getCareerByIdCtrl (req: Request, res: Response) {
+export async function getCareerByIdCtrl(req: Request, res: Response) {
   try {
-    res.send("success");
+    res.send('success')
   } catch (e) {
-    res.status(400).send({ error: "get CareerById" });
+    res.status(400).send({error: 'get CareerById'})
   }
 }
 
-export async function createCareerCtrl (req: Request, res: Response) {
+export async function createCareerCtrl(req: Request, res: Response) {
   try {
-    res.send("success");
+    res.send('success')
   } catch (e) {
-    res.status(400).send({ error: "create Career" });
+    res.status(400).send({error: 'create Career'})
   }
 }
 
-export async function updateCareerCtrl (req: Request, res: Response) {
+export async function updateCareerCtrl(req: Request, res: Response) {
   try {
-    res.send("success");
+    res.send('success')
   } catch (e) {
-    res.status(400).send({ error: "update Career" });
+    res.status(400).send({error: 'update Career'})
   }
 }
 
-export async function deleteCareerCtrl (req: Request, res: Response) {
+export async function deleteCareerCtrl(req: Request, res: Response) {
   try {
-    res.send("success");
+    res.send('success')
   } catch (e) {
-    res.status(400).send({ error: "delete Career" });
+    res.status(400).send({error: 'delete Career'})
   }
 }

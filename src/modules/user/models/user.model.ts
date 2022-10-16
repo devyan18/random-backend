@@ -7,9 +7,10 @@ import { IRoleModel } from "@modules/role/models/role.model";
 const SALT_WORK_FACTOR = 10;
 
 export interface IUserModel extends User, Document {
+  _id: Types.ObjectId;
   comparePassword: (password: string) => Promise<boolean>
-  person: string | Types.ObjectId | IPersonModel
-  role: string | Types.ObjectId | IRoleModel
+  person: string | Types.ObjectId | IPersonModel | null
+  role: string | Types.ObjectId | IRoleModel | null
   password: string
   isActive: boolean
 }
