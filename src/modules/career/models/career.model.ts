@@ -1,6 +1,6 @@
-import { Document, model, Schema, Types } from "mongoose";
-import Career from "../interfaces/career.entity";
-import { IPeriodModel } from "@modules/period/models/period.model";
+import { Document, model, Schema, Types } from 'mongoose'
+import Career from '../interfaces/career.entity'
+import { IPeriodModel } from '@modules/period/models/period.model'
 
 export interface ICareerModel extends Career, Document {
   periods: Array<Types.ObjectId | IPeriodModel>
@@ -25,11 +25,11 @@ const CareerSchema = new Schema<ICareerModel>({
   },
   periods: [{
     type: Schema.Types.ObjectId,
-    ref: "Period"
+    ref: 'Period'
   }]
 },
 {
   timestamps: true
-});
+})
 
-export default model<ICareerModel>("Career", CareerSchema);
+export default model<ICareerModel>('Career', CareerSchema)

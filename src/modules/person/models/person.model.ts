@@ -1,6 +1,6 @@
-import { Document, model, Schema, Types } from "mongoose";
-import Person from "../interfaces/person.entity";
-import { IUserModel } from "@modules/user/models/user.model";
+import { Document, model, Schema, Types } from 'mongoose'
+import Person from '../interfaces/person.entity'
+import { IUserModel } from '@modules/user/models/user.model'
 
 export interface IPersonModel extends Person, Document {
   user: string | IUserModel,
@@ -25,24 +25,24 @@ const PersonSchema = new Schema<IPersonModel>({
   },
   user: {
     type: Types.ObjectId,
-    ref: "User",
+    ref: 'User',
     required: true
   }
 },
 {
   timestamps: true
-});
+})
 
-PersonSchema.pre<IPersonModel>("save", function (next) {
-  const person = this;
+PersonSchema.pre<IPersonModel>('save', function (next) {
+  const person = this
 
-  if (!person.isModified(["lastName", "firstName"])) return next();
+  if (!person.isModified(['lastName', 'firstName'])) return next()
 
-  if (person.isModified("lastName") || person.isModified("firstName")) {
-    person.fullName = `${person.firstName} ${person.lastName}`;
+  if (person.isModified('lastName') || person.isModified('firstName')) {
+    person.fullName = `${person.firstName} ${person.lastName}`
   }
 
-  next();
-});
+  next()
+})
 
-export default model<IPersonModel>("Person", PersonSchema);
+export default model<IPersonModel>('Person', PersonSchema)

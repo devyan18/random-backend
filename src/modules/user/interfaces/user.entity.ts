@@ -4,4 +4,4 @@ interface User{
   email: string
 }
 
-export default User;
+export default User

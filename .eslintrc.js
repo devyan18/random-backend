@@ -5,22 +5,22 @@ module.exports = {
     node: true
   },
   extends: [
-    "standard"
+    'standard'
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module"
+    ecmaVersion: 'latest',
+    sourceType: 'module'
   },
   plugins: [
-    "@typescript-eslint"
+    '@typescript-eslint'
   ],
   rules: {
-    "no-undef": "off",
-    "n/no-path-concat": "off",
-    "array-callback-return": "off",
-    "no-useless-return": "off",
-    semi: ["error", "always"],
-    quotes: ["error", "double"]
+    'no-undef': 'off',
+    'n/no-path-concat': 'off',
+    'array-callback-return': 'off',
+    'no-useless-return': 'off',
+    semi: ['error', 'never'],
+    quotes: ['error', 'single']
   }
-};
+}

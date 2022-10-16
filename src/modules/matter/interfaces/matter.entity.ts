@@ -3,4 +3,4 @@ interface Matter {
   description: string
 }
 
-export default Matter;
+export default Matter

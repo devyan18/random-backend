@@ -4,4 +4,4 @@ interface Period {
   endDate: Date
 }
 
-export default Period;
+export default Period

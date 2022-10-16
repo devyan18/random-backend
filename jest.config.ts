@@ -1,15 +1,15 @@
-import type { Config } from "@jest/types";
+import type { Config } from '@jest/types'
 export default async (): Promise<Config.InitialOptions> => {
   return {
-    preset: "ts-jest",
+    preset: 'ts-jest',
     verbose: true,
-    setupFiles: ["dotenv/config"],
-    testMatch: ["./src/modules/**/tests/*.test.ts"],
-    testEnvironment: "node",
+    setupFiles: ['dotenv/config'],
+    testMatch: ['./src/modules/**/tests/*.test.ts'],
+    testEnvironment: 'node',
     detectOpenHandles: true,
     collectCoverage: false,
-    transform: { "^.+\\.tsx?$": "ts-jest" },
-    globalTeardown: "<rootDir>/src/tests/jest-globals-teardown.ts",
+    transform: { '^.+\\.tsx?$': 'ts-jest' },
+    globalTeardown: '<rootDir>/src/tests/jest-globals-teardown.ts',
     forceExit: true
-  };
-};
+  }
+}

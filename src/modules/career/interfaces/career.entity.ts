@@ -5,4 +5,4 @@ interface Career {
   endDate: Date
 }
 
-export default Career;
+export default Career

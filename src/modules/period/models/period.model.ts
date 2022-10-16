@@ -1,7 +1,7 @@
-import { Document, model, Schema, Types } from "mongoose";
-import Period from "../interfaces/period.entity";
-import { ICareerModel } from "@modules/career/models/career.model";
-import { IMatterModel } from "@modules/matter/models/matter.model";
+import { Document, model, Schema, Types } from 'mongoose'
+import Period from '../interfaces/period.entity'
+import { ICareerModel } from '@modules/career/models/career.model'
+import { IMatterModel } from '@modules/matter/models/matter.model'
 
 export interface IPeriodModel extends Period, Document {
   career: Types.ObjectId | ICareerModel
@@ -23,15 +23,15 @@ const PeriodSchema = new Schema<IPeriodModel>({
   },
   career: {
     type: Types.ObjectId,
-    ref: "Career"
+    ref: 'Career'
   },
   matters: [{
     type: Types.ObjectId,
-    ref: "Matter"
+    ref: 'Matter'
   }]
 },
 {
   timestamps: true
-});
+})
 
-export default model<IPeriodModel>("Period", PeriodSchema);
+export default model<IPeriodModel>('Period', PeriodSchema)

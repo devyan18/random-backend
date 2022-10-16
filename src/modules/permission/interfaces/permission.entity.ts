@@ -3,4 +3,4 @@ export interface Permission{
   description: string
 }
 
-export default Permission;
+export default Permission

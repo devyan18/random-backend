@@ -1,8 +1,8 @@
 interface Person {
   firstName: string
   lastName: string
-  gender: "male" | "female" | "unknown"
+  gender: 'male' | 'female' | 'unknown'
   dateOfBirth: Date
 }
 
-export default Person;
+export default Person

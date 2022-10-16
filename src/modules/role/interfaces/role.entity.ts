@@ -3,4 +3,4 @@ interface Role {
   description: string
 }
 
-export default Role;
+export default Role

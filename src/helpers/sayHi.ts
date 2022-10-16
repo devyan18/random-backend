@@ -1,5 +1,5 @@
 const sayHi = (): void => {
-  console.log("Hello World");
-};
+  console.log('Hello World')
+}
 
-export default sayHi;
+export default sayHi

@@ -1,6 +1,6 @@
-import { Document, model, Schema, Types } from "mongoose";
-import Matter from "../interfaces/matter.entity";
-import { IUserModel } from "@modules/user/models/user.model";
+import { Document, model, Schema, Types } from 'mongoose'
+import Matter from '../interfaces/matter.entity'
+import { IUserModel } from '@modules/user/models/user.model'
 
 export interface IMatterModel extends Matter, Document {
   teachers: Array<Types.ObjectId | IUserModel>
@@ -17,11 +17,11 @@ const MatterSchema = new Schema<IMatterModel>({
   },
   teachers: [{
     type: Types.ObjectId,
-    ref: "User"
+    ref: 'User'
   }]
 },
 {
   timestamps: true
-});
+})
 
-export default model<IMatterModel>("Matter", MatterSchema);
+export default model<IMatterModel>('Matter', MatterSchema)
