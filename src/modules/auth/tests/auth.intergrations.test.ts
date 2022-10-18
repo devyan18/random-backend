@@ -18,7 +18,7 @@ beforeEach(async () => {
 })
 
 describe('Register new User', () => {
-  const registerURL = '/api/v1/auth/register'
+  const registerURL = '/api/v1/auths/register'
 
   test('Should return 200 and a new user', async () => {
     const response = await request.post(registerURL).send({
@@ -54,7 +54,7 @@ describe('Register new User', () => {
 })
 
 describe('Login User', () => {
-  const loginURL = '/api/v1/auth/login'
+  const loginURL = '/api/v1/auths/login'
 
   test('Should return 200 and a token', async () => {
     const user = await UserModel.create(userTest)
