@@ -7,7 +7,7 @@ import {
   updateRole
 } from '../services/role.services'
 
-export async function getAllRolesCtrl (req: Request, res: Response) {
+export async function getAllRolesCtrl (_req: Request, res: Response) {
   try {
     const roles = await listRoles()
     res.status(200).json({

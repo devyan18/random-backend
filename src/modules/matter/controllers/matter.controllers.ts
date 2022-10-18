@@ -7,7 +7,7 @@ import {
   updateMatter
 } from '../services/matter.services'
 
-export async function getAllMattersCtrl (req: Request, res: Response) {
+export async function getAllMattersCtrl (_req: Request, res: Response) {
   try {
     const matters = await listMatters()
     res.status(200).json({

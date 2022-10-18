@@ -7,7 +7,7 @@ import {
   deletePermission
 } from '../services/permission.services'
 
-async function listPermissionsCtrl (req: Request, res: Response) {
+async function listPermissionsCtrl (_req: Request, res: Response) {
   try {
     const permissions = await listPermissions()
     res.status(200).json({
