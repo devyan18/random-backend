@@ -12,21 +12,16 @@ beforeEach(async () => {
 })
 
 describe('Register new User', () => {
-  const registerURL = '/api/v1/users/register'
+  const registerURL = '/api/v1/auth/register'
 
-  test('Should return 201 and a new user', async () => {
+  test('Should return 200 and a new user', async () => {
     const response = await request.post(registerURL).send({
       username: 'tester',
       email: 'tester@gmail.com',
       password: '123456'
     })
-    expect(response.status).toBe(201)
-    expect(response.body).toHaveProperty('username')
-    expect(response.body).toHaveProperty('email')
-    expect(response.body).toHaveProperty('password')
-    expect(response.body).toHaveProperty('isActive')
-    expect(response.body).toHaveProperty('person')
-    expect(response.body).toHaveProperty('role')
+    expect(response.status).toBe(200)
+    expect(response.body).toHaveProperty('token')
   })
 
   test('Should return 406 if not passed username', async () => {
@@ -57,7 +52,6 @@ describe('Login User', () => {
 
   test('Should return 200 and a token', async () => {
     const user = await UserModel.create({
-      username: 'tester',
       email: 'tester@gmail.com',
       password: '123456'
     })
