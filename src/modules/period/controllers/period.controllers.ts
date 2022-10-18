@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-export async function getAllPeriodsCtrl (_req: Request, res: Response) {
+export async function listPeriodsCtrl (_req: Request, res: Response) {
   try {
     res.send('success')
   } catch (e) {
@@ -8,7 +8,7 @@ export async function getAllPeriodsCtrl (_req: Request, res: Response) {
   }
 }
 
-export async function getPeriodByIdCtrl (req: Request, res: Response) {
+export async function getPeriodCtrl (req: Request, res: Response) {
   try {
     res.send('success')
   } catch (e) {

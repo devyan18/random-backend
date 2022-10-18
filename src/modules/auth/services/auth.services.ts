@@ -36,9 +36,10 @@ export async function createUserAndReturnToken (email: string, password: string,
       user: newUser._id
     })
 
-    const user = await newUser.save()
+    await newUser.save()
     await person.save()
-    const token = createJsonWebToken(user)
+
+    const token = createJsonWebToken(newUser)
 
     return token
   } catch (error) {

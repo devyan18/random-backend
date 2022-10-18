@@ -23,7 +23,9 @@ export async function createUser (user: User) {
 }
 
 export async function updateUser (user: User) {
-  const updatedUser = await UserModel.updateOne(user, { new: true })
+  const { email, username, password } = user
+
+  const updatedUser = await UserModel.updateOne({ email, username, password }, { new: true })
 
   return updatedUser
 }

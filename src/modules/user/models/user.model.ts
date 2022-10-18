@@ -13,6 +13,7 @@ export interface IUserModel extends User, Document {
   role: string | Types.ObjectId | IRoleModel | null
   password: string
   isActive: boolean
+  isAdmin: boolean
 }
 
 const UserSchema = new Schema<IUserModel>({
@@ -38,6 +39,10 @@ const UserSchema = new Schema<IUserModel>({
   isActive: {
     type: Boolean,
     default: true
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false
   },
   person: {
     type: Schema.Types.ObjectId,

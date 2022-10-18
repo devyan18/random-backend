@@ -7,6 +7,8 @@ import {
   updateMatterCtrl
 } from '../modules/matter/controllers/matter.controllers'
 import passport from 'passport'
+import zodValidation from '../middlewares/zodValidation'
+import { matterSchema } from '../modules/matter/validations/matter.schemas'
 
 const router = Router()
 
@@ -14,9 +16,9 @@ router.get('/:period', passport.authenticate('jwt', { session: false }), getAllM
 
 router.get('/:period/:matter', passport.authenticate('jwt', { session: false }), getMatterByIdCtrl)
 
-router.post('/:period', passport.authenticate('jwt', { session: false }), createMatterCtrl)
+router.post('/:period', passport.authenticate('jwt', { session: false }), zodValidation(matterSchema), createMatterCtrl)
 
-router.put('/:period/:matter', passport.authenticate('jwt', { session: false }), updateMatterCtrl)
+router.put('/:period/:matter', passport.authenticate('jwt', { session: false }), zodValidation(matterSchema), updateMatterCtrl)
 
 router.delete('/:period/:matter', passport.authenticate('jwt', { session: false }), deleteMatterCtrl)
 
