@@ -9,7 +9,7 @@ import environments from './settings/env.variables'
 import connectMongo from './settings/database'
 import strategy from './middlewares/passport'
 import passport from 'passport'
-import v1 from './routes'
+import v1 from './apis/v1'
 
 const app: Application = express()
 

@@ -1,6 +1,6 @@
 import { Document, model, Schema, Types } from 'mongoose'
 import Matter from '../interfaces/matter.entity'
-import { IUserModel } from '@modules/user/models/user.model'
+import { IUserModel } from '@mod/user/models/user.model'
 
 export interface IMatterModel extends Matter, Document {
   teachers: Array<Types.ObjectId | IUserModel>

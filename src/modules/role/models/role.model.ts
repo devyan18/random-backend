@@ -1,6 +1,6 @@
 import { Document, model, Schema, Types } from 'mongoose'
 import Role from '../interfaces/role.entity'
-import { IPermissionModel } from '@modules/permission/models/permission.model'
+import { IPermissionModel } from '@mod/permission/models/permission.model'
 
 export interface IRoleModel extends Role, Document {
   permissions: Array<IPermissionModel | string | Types.ObjectId>;

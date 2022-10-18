@@ -1,8 +1,8 @@
 import { Document, model, Schema, Types } from 'mongoose'
 import bcryptjs from 'bcryptjs'
 import User from '../interfaces/user.entity'
-import { IPersonModel } from '@modules/person/models/person.model'
-import { IRoleModel } from '@modules/role/models/role.model'
+import { IPersonModel } from '@mod/person/models/person.model'
+import { IRoleModel } from '@mod/role/models/role.model'
 
 const SALT_WORK_FACTOR = 10
 

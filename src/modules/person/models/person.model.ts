@@ -1,6 +1,6 @@
 import { Document, model, Schema, Types } from 'mongoose'
 import Person from '../interfaces/person.entity'
-import { IUserModel } from '@modules/user/models/user.model'
+import { IUserModel } from '@mod/user/models/user.model'
 
 export interface IPersonModel extends Person, Document {
   user: string | IUserModel,
