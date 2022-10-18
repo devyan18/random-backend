@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { IUserModel } from '../../user/models/user.model'
 import {
   createPermission,
   getPermission,
@@ -32,6 +33,12 @@ async function getPermissionCtrl (req: Request, res: Response) {
 
 async function createPermissionCtrl (req: Request, res: Response) {
   try {
+    const user = req.user as IUserModel
+
+    if (!user.isAdmin) {
+      return res.status(401).send({ error: 'Unauthorized' })
+    }
+
     const permission = await createPermission(req.body)
     res.status(201).json({
       permission
