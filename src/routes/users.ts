@@ -2,7 +2,7 @@ import { Router } from 'express'
 import {
   createUserCtrl,
   deleteUserCtrl,
-  getAllUsersCtrl,
+  listUsersCtrl,
   getUserByIdCtrl,
   updateUserCtrl
 } from '../modules/user/controllers/user.controllers'
@@ -12,7 +12,7 @@ import passport from 'passport'
 
 const router = Router()
 
-router.get('/', passport.authenticate('jwt', { session: false }), getAllUsersCtrl)
+router.get('/', passport.authenticate('jwt', { session: false }), listUsersCtrl)
 
 router.get('/', passport.authenticate('jwt', { session: false }), getUserByIdCtrl)
 

@@ -1,11 +1,17 @@
 import mongoose from 'mongoose'
 import superTest from 'supertest'
 
-import UserModel from '../modules/user/models/user.model'
+import UserModel from '../../user/models/user.model'
 
-import { app, server } from '../index'
+import { app, server } from '../../../index'
 
 const request = superTest(app)
+
+const userTest = {
+  username: 'tester',
+  email: 'tester@gmail.com',
+  password: '123456'
+}
 
 beforeEach(async () => {
   await UserModel.deleteMany({})
@@ -16,9 +22,9 @@ describe('Register new User', () => {
 
   test('Should return 200 and a new user', async () => {
     const response = await request.post(registerURL).send({
-      username: 'tester',
-      email: 'tester@gmail.com',
-      password: '123456'
+      username: userTest.username,
+      email: userTest.email,
+      password: userTest.password
     })
     expect(response.status).toBe(200)
     expect(response.body).toHaveProperty('token')
@@ -26,49 +32,43 @@ describe('Register new User', () => {
 
   test('Should return 406 if not passed username', async () => {
     const response = await request.post(registerURL).send({
-      email: 'tester@gmail.com',
-      password: '123456'
+      email: userTest.email,
+      password: userTest.password
     })
     expect(response.status).toBe(406)
   })
   test('Should return 406 if not passed email', async () => {
     const response = await request.post(registerURL).send({
-      username: 'tester',
-      password: '123456'
+      username: userTest.username,
+      password: userTest.password
     })
     expect(response.status).toBe(406)
   })
   test('Should return 406 if not passed password', async () => {
     const response = await request.post(registerURL).send({
-      username: 'tester',
-      email: 'tester@gmail.com'
+      username: userTest.username,
+      email: userTest.email
     })
     expect(response.status).toBe(406)
   })
 })
 
 describe('Login User', () => {
-  const loginURL = '/api/v1/users/login'
+  const loginURL = '/api/v1/auth/login'
 
   test('Should return 200 and a token', async () => {
-    const user = await UserModel.create({
-      email: 'tester@gmail.com',
-      password: '123456'
-    })
+    const user = await UserModel.create(userTest)
+
     const response = await request.post(loginURL).send({
       email: user.email,
-      password: '123456'
+      password: userTest.password
     })
     expect(response.status).toBe(200)
     expect(response.body).toHaveProperty('token')
   })
 
   test('Sohuld return 404 if user not found', async () => {
-    await UserModel.create({
-      username: 'tester',
-      email: 'tester@gmail.com',
-      password: '123456'
-    })
+    await UserModel.create(userTest)
 
     const response = await request.post(loginURL).send({
       email: 'notfound@gmail.com',
@@ -78,11 +78,7 @@ describe('Login User', () => {
   })
 
   test('Sohuld return 404 if password not found', async () => {
-    const user = await UserModel.create({
-      username: 'tester',
-      email: 'tester@gmail.com',
-      password: '123456'
-    })
+    const user = await UserModel.create(userTest)
 
     const response = await request.post(loginURL).send({
       email: user.email,

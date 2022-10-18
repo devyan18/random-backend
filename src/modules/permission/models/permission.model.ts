@@ -10,7 +10,7 @@ const PermissionSchema = new Schema<IPermissionModel>({
   },
   description: {
     type: String,
-    required: true
+    default: ''
   }
 },
 {

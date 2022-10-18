@@ -2,7 +2,7 @@ import { Router } from 'express'
 import {
   createCareerCtrl,
   deleteCareerCtrl,
-  getAllCareersCtrl,
+  listCareersCtrl,
   getCareerByIdCtrl,
   updateCareerCtrl
 } from '../modules/career/controllers/career.controllers'
@@ -10,7 +10,7 @@ import passport from 'passport'
 
 const router = Router()
 
-router.get('/', passport.authenticate('jwt', { session: false }), getAllCareersCtrl)
+router.get('/', passport.authenticate('jwt', { session: false }), listCareersCtrl)
 
 router.get('/:career', passport.authenticate('jwt', { session: false }), getCareerByIdCtrl)
 

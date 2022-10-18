@@ -1,10 +1,14 @@
 import type { Config } from '@jest/types'
+import path from 'path'
+
+const directory = path.join(__dirname, 'src', 'modules')
+
 export default async (): Promise<Config.InitialOptions> => {
   return {
     preset: 'ts-jest',
     verbose: true,
     setupFiles: ['dotenv/config'],
-    testMatch: ['./src/modules/**/tests/*.test.ts'],
+    testMatch: [`${directory}/**/**/*.test.ts`],
     testEnvironment: 'node',
     detectOpenHandles: true,
     collectCoverage: false,

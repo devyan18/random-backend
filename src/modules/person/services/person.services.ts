@@ -1,39 +1,26 @@
-export async function getAllPerson () {
-  try {
-    // ...
-  } catch (error) {
+import { Types } from 'mongoose'
+import Person from '../interfaces/person.entity'
+import PersonModel, { IPersonModel } from '../models/person.model'
 
-  }
+export async function getPersonById (
+  userId: string | Types.ObjectId
+): Promise<IPersonModel | null> {
+  const person = await PersonModel.findOne({ user: userId })
+  if (!person) return null
+  return person
 }
 
-export async function getPersonById (id: string) {
-  try {
-    // ...
-  } catch (error) {
+export async function updatePerson (
+  person: Partial<Person>,
+  userId: Types.ObjectId
+): Promise<IPersonModel | null> {
+  const personToUpdate = await PersonModel.findOne({ user: userId })
 
+  if (!personToUpdate) {
+    return null
   }
-}
 
-export async function createPerson (Person: {}) {
-  try {
-    // ...
-  } catch (error) {
+  const personEdited = await PersonModel.findOneAndUpdate({ user: userId }, person, { new: true })
 
-  }
-}
-
-export async function updatePerson (Person: {}) {
-  try {
-    // ...
-  } catch (error) {
-
-  }
-}
-
-export async function deletePerson (id: {}) {
-  try {
-    // ...
-  } catch (error) {
-
-  }
+  return personEdited
 }

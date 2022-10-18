@@ -10,18 +10,23 @@ export interface IPersonModel extends Person, Document {
 const PersonSchema = new Schema<IPersonModel>({
   firstName: {
     type: String,
-    required: true
+    default: null
   },
   lastName: {
     type: String,
-    required: true
+    default: null
   },
   fullName: {
-    type: String
+    type: String,
+    default: null
   },
   dateOfBirth: {
     type: Date,
-    required: true
+    default: null
+  },
+  gender: {
+    type: String,
+    default: 'unknown'
   },
   user: {
     type: Types.ObjectId,
@@ -39,7 +44,9 @@ PersonSchema.pre<IPersonModel>('save', function (next) {
   if (!person.isModified(['lastName', 'firstName'])) return next()
 
   if (person.isModified('lastName') || person.isModified('firstName')) {
-    person.fullName = `${person.firstName} ${person.lastName}`
+    if (person.lastName && person.firstName) {
+      person.fullName = `${person.firstName} ${person.lastName}`
+    }
   }
 
   next()

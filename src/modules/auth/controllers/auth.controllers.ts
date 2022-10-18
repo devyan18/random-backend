@@ -8,7 +8,13 @@ export async function loginUserCtrl (req: Request, res: Response) {
   try {
     const { email, password } = req.body
 
-    const token = getTokenByLogin(email, password)
+    const token = await getTokenByLogin(email, password)
+
+    if (!token) {
+      return res.status(404).json({
+        message: 'user not found'
+      })
+    }
 
     res.status(200).json({
       token
@@ -22,7 +28,7 @@ export async function registerUserCtrl (req: Request, res: Response) {
   try {
     const { username, email, password } = req.body
 
-    const token = createUserAndReturnToken(email, password, username)
+    const token = await createUserAndReturnToken(email, password, username)
 
     res.status(200).json({
       token
