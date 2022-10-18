@@ -1,7 +1,7 @@
 import { Document, model, Schema, Types } from 'mongoose'
 import Period from '../interfaces/period.entity'
-import { ICareerModel } from '@mod/career/models/career.model'
-import { IMatterModel } from '@mod/matter/models/matter.model'
+import { ICareerModel } from '../../career/models/career.model'
+import { IMatterModel } from '../../matter/models/matter.model'
 
 export interface IPeriodModel extends Period, Document {
   career: Types.ObjectId | ICareerModel

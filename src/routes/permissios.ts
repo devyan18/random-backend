@@ -1,6 +1,6 @@
 import { permissionSchema } from '../modules/permission/validations/permissions.schema'
 import { Router } from 'express'
-import zodValidation from 'middlewares/zodValidation'
+import zodValidation from '../middlewares/zodValidation'
 import passport from 'passport'
 import {
   createPermissionCtrl,

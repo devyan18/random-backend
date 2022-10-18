@@ -1,6 +1,6 @@
 import { Document, model, Schema, Types } from 'mongoose'
 import Career from '../interfaces/career.entity'
-import { IPeriodModel } from '@mod/period/models/period.model'
+import { IPeriodModel } from '../../period/models/period.model'
 
 export interface ICareerModel extends Career, Document {
   periods: Array<Types.ObjectId | IPeriodModel>

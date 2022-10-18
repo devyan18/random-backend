@@ -20,9 +20,9 @@ beforeEach(async () => {
 describe('Create new person', () => {
   const personURL = '/api/v1/persons'
 
-  test('Should return 200 and a new person', async () => {
+  test('Should return 202 a person edited', async () => {
     const userResponse = await request
-      .post('/api/v1/auth/register')
+      .post('/api/v1/auths/register')
       .send(userTest)
 
     const token = userResponse.body.token
@@ -35,7 +35,7 @@ describe('Create new person', () => {
         dateOfBirth: '2002-05-17'
       })
 
-    expect(response.status).toBe(200)
+    expect(response.status).toBe(202)
   })
 })
 
