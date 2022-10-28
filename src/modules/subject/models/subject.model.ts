@@ -1,13 +1,13 @@
 import { Document, model, Schema, Types } from 'mongoose'
-import Matter from '../interfaces/matter.entity'
 import { IUserModel } from '../../user/models/user.model'
+import Subject from '../interfaces/subject.entity'
 
-export interface IMatterModel extends Matter, Document {
+export interface ISubjectModel extends Subject, Document {
   teachers: Array<Types.ObjectId | IUserModel>
 }
 
-const MatterSchema = new Schema<IMatterModel>({
-  matterName: {
+const SubjectSchema = new Schema<ISubjectModel>({
+  subjectName: {
     type: String,
     required: true
   },
@@ -24,4 +24,4 @@ const MatterSchema = new Schema<IMatterModel>({
   timestamps: true
 })
 
-export default model<IMatterModel>('Matter', MatterSchema)
+export default model<ISubjectModel>('Subject', SubjectSchema)

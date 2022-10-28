@@ -4,7 +4,7 @@
   "architecture": "clean",
   "typescript": true,
   "modules": [
-    "matter",
+    "subject",
     "period",
     "permission",
     "person",
