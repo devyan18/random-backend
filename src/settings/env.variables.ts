@@ -2,7 +2,7 @@ const { JWT_SECRET, MONGODB_URI, NODE_ENV, PORT } = process.env
 
 const LOCAL_PORT = 4000
 const LOCAL_JWT_SECRET = 'secret'
-const LOCAL_MONGO_URI = 'mongodb://localhost:27017/random'
+const LOCAL_MONGO_URI = 'mongodb://localhost:27017/random-db-other'
 const MONGO_URI_TEST = 'mongodb://localhost:27017/random-test'
 
 export default {

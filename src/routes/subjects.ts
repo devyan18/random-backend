@@ -14,12 +14,12 @@ const router = Router()
 
 router.get('/:period', passport.authenticate('jwt', { session: false }), getAllSubjectsCtrl)
 
-router.get('/:period/:matter', passport.authenticate('jwt', { session: false }), getSubjectByIdCtrl)
+router.get('/:period/:subject', passport.authenticate('jwt', { session: false }), getSubjectByIdCtrl)
 
 router.post('/:period', passport.authenticate('jwt', { session: false }), zodValidation(subjectSchema), createSubjectCtrl)
 
-router.put('/:period/:matter', passport.authenticate('jwt', { session: false }), zodValidation(subjectSchema), updateSubjectCtrl)
+router.put('/:period/:subject', passport.authenticate('jwt', { session: false }), zodValidation(subjectSchema), updateSubjectCtrl)
 
-router.delete('/:period/:matter', passport.authenticate('jwt', { session: false }), deleteSubjectCtrl)
+router.delete('/:period/:subject', passport.authenticate('jwt', { session: false }), deleteSubjectCtrl)
 
 export { router }
